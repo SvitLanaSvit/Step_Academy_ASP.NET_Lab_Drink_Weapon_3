@@ -16,11 +16,6 @@ app.Map("/warrior", context =>
     context.UseMyMiddleware();
 });
 
-app.Run(async context =>
-{
-    Warrior? warrior = app.Services.GetService<Warrior>();
-    context.Response.ContentType = "text/html; charset=utf-8";
-    await context.Response.WriteAsync($"<h2>{warrior?.GetWeaponMessage()}</h2>");
-});
+app.UseMiddleware<WeaponMiddleware>();
 
 app.Run();

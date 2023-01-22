@@ -32,6 +32,7 @@ app.Map("/allDrink", (contex) =>
 //});
 
 //for task_2
+//app.UseMiddleware<AllDrinkMiddleware>();
 app.Run(async context =>
 {
     AllDrinkService? drinkServices = app.Services.GetService<AllDrinkService>();
